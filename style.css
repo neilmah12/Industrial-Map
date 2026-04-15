@@ -292,8 +292,8 @@ html, body {
    MAP CONTAINER
    ───────────────────────────────────────────── */
 #map {
-  flex: 1;
-  height: 100%;
+  flex: 1 1 0;
+  min-height: 0;
   z-index: 0;
 }
 
