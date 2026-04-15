@@ -119,13 +119,6 @@ const LOCATIONS = [
     lng:      -113.571509
   },
   {
-    name:     "Play It Again Sports",
-    category: "Pickleball Facilities",
-    address:  "13883 156 St NW, Edmonton, AB",
-    lat:      53.6011997,
-    lng:      -113.5890939
-  },
-  {
     name:     "Raise Athletics",
     category: "Pickleball Facilities",
     address:  "9 Richardson Dr, St. Albert, AB",
@@ -282,13 +275,6 @@ const LOCATIONS = [
     lng:      -113.9782607
   },
   {
-    name:     "Golf Traders Edmonton",
-    category: "Golf Simulator",
-    address:  "3865 99 St NW, Edmonton, AB",
-    lat:      53.4736679,
-    lng:      -113.4852987
-  },
-  {
     name:     "Golf Traders Indoor Golf Center",
     category: "Golf Simulator",
     address:  "3865 99 St NW, Edmonton, AB",
@@ -331,7 +317,7 @@ const LOCATIONS = [
     lng:      -113.586522
   },
   {
-    name:     "Longshotz Golf",
+    name:     "Longshotz Golf (Edmonton)",
     category: "Golf Simulator",
     address:  "15117 Stony Plain Rd, Edmonton, AB",
     lat:      53.541172,
@@ -364,13 +350,6 @@ const LOCATIONS = [
     address:  "8280 175 St NW, Edmonton, AB",
     lat:      53.515634,
     lng:      -113.6244966
-  },
-  {
-    name:     "PGR Golf Range",
-    category: "Golf Simulator",
-    address:  "8248 175 St NW, Edmonton, AB",
-    lat:      53.5156559,
-    lng:      -113.6248042
   },
   {
     name:     "Tap Indoor Golf",

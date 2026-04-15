@@ -18,7 +18,7 @@ const CONFIG = {
   },
 
   // Page title shown in the header
-  title: "Greater Edmonton Competitor Map",
+  title: "Greater Edmonton Golf Sim and Pickleball Locations",
 
   categories: {
     "Golf Simulator": {
