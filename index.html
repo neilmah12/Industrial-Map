@@ -72,6 +72,29 @@
         <!-- Location list -->
         <div id="location-list"></div>
 
+        <!-- Excel importer -->
+        <div class="sidebar-section import-section">
+          <div class="filters-label">Import data</div>
+          <div id="import-drop" class="import-drop" role="button" tabindex="0"
+               aria-label="Upload Excel or CSV file">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <span>Drop file or click to browse</span>
+            <small>.xlsx, .xls, .csv</small>
+          </div>
+          <input type="file" id="import-file-input" accept=".xlsx,.xls,.csv"
+                 style="display:none" />
+          <div id="import-status" class="import-status" style="display:none"></div>
+          <div class="import-hint">
+            Required columns: <code>name</code>, <code>category</code>,
+            <code>address</code>, <code>lat</code>, <code>lng</code>
+          </div>
+        </div>
+
       </div>
     </aside>
 
@@ -89,11 +112,16 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
         crossorigin="anonymous"></script>
 
+<!-- SheetJS (Excel / CSV parser) -->
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"
+        crossorigin="anonymous"></script>
+
 <!-- App scripts (order matters) -->
 <script src="config.js"></script>
 <script src="data.js"></script>
 <script src="map.js"></script>
 <script src="filters.js"></script>
+<script src="import.js"></script>
 
 <script>
   // ── Bootstrap ─────────────────────────────
@@ -135,6 +163,7 @@
   initMap();
   buildFilters();
   initSearch();
+  initImporter();
   applyFilters();
   // Force Leaflet to recalculate the container size after layout settles
   setTimeout(function () { map.invalidateSize(); }, 100);
