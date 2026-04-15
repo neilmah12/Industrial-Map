@@ -4,14 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Greater Edmonton Golf Sim and Pickleball Locations</title>
-
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous" />
-
-  <!-- MarkerCluster CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" crossorigin="anonymous" />
-
   <style>
 /* ─────────────────────────────────────────────
    RESET & BASE
@@ -414,20 +409,13 @@ html, body {
 <body>
 
 <div class="app-wrapper">
-
-  <!-- Header -->
   <header class="header">
     <div class="header-logos" id="header-logos"></div>
     <div class="header-title" id="header-title"></div>
   </header>
-
   <div class="main-content">
-
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-inner">
-
-        <!-- Search -->
         <div class="sidebar-section">
           <div class="search-wrapper">
             <span class="search-icon">
@@ -445,38 +433,23 @@ html, body {
             </button>
           </div>
         </div>
-
-        <!-- Category filters -->
         <div class="sidebar-section">
           <div class="filters-label">Filter by type</div>
           <div id="category-filters"></div>
         </div>
-
-        <!-- Count -->
-        <div class="count-row">
-          <span id="location-count"></span>
-        </div>
-
-        <!-- Location list -->
+        <div class="count-row"><span id="location-count"></span></div>
         <div id="location-list"></div>
-
       </div>
     </aside>
-
-    <!-- Map -->
     <div id="map"></div>
-
   </div>
 </div>
 
-<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
-
-<!-- MarkerCluster JS -->
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin="anonymous"></script>
 
 <script>
-// ── config.js ────────────────────────────────
+// config.js
 // ─────────────────────────────────────────────
 // LOGOS — swap these for a new client
 // Paste Base64 strings below (no logos/ folder needed)
@@ -512,7 +485,7 @@ const CONFIG = {
 };
 
 
-// ── data.js ──────────────────────────────────
+// data.js
 // ─────────────────────────────────────────────
 // LOCATION DATA
 // Each entry must have: name, category, address, lat, lng
@@ -932,7 +905,7 @@ const LOCATIONS = [
 ];
 
 
-// ── map.js ───────────────────────────────────
+// map.js
 // ─────────────────────────────────────────────
 // MAP INITIALISATION
 // ─────────────────────────────────────────────
@@ -950,9 +923,10 @@ function initMap() {
   // Zoom control — bottom right
   L.control.zoom({ position: "bottomright" }).addTo(map);
 
-  // Basemap tiles
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  // Basemap tiles (CartoDB Voyager — no referer restriction, works from local files)
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: "abcd",
     maxZoom: 19
   }).addTo(map);
 
@@ -1030,7 +1004,7 @@ function refreshMarkers(visibleLocations) {
 }
 
 
-// ── filters.js ───────────────────────────────
+// filters.js
 // ─────────────────────────────────────────────
 // FILTERS & SEARCH
 // ─────────────────────────────────────────────
@@ -1197,42 +1171,36 @@ function renderListPanel(visibleSet) {
 }
 
 
-// ── Bootstrap ────────────────────────────────
+// Bootstrap
 document.getElementById("header-title").textContent = CONFIG.title;
-
 (function renderLogos() {
-  const container = document.getElementById("header-logos");
-  function isPlaceholder(src) {
-    return !src || src.includes("PASTE_") || src.length < 50;
-  }
-  ["companyLogo", "clientLogo"].forEach(function (key, i) {
-    const src = LOGOS[key];
+  var container = document.getElementById("header-logos");
+  function isPlaceholder(src) { return !src || src.includes("PASTE_") || src.length < 50; }
+  ["companyLogo", "clientLogo"].forEach(function(key, i) {
+    var src = LOGOS[key];
     if (isPlaceholder(src)) {
-      const ph = document.createElement("div");
-      ph.className   = "logo-placeholder";
+      var ph = document.createElement("div");
+      ph.className = "logo-placeholder";
       ph.textContent = key === "companyLogo" ? "Company Logo" : "Client Logo";
       container.appendChild(ph);
     } else {
-      const img = document.createElement("img");
-      img.src       = src;
-      img.alt       = key === "companyLogo" ? "Company" : "Client";
+      var img = document.createElement("img");
+      img.src = src; img.alt = key === "companyLogo" ? "Company" : "Client";
       img.className = "header-logo";
       container.appendChild(img);
     }
     if (i === 0) {
-      const div = document.createElement("div");
+      var div = document.createElement("div");
       div.className = "header-divider";
       container.appendChild(div);
     }
   });
 })();
-
 initMap();
 buildFilters();
 initSearch();
 applyFilters();
-setTimeout(function () { map.invalidateSize(); }, 100);
+setTimeout(function() { map.invalidateSize(); }, 100);
 </script>
-
 </body>
 </html>
