@@ -25,9 +25,9 @@ const CONFIG = {
       color: "#4DB595",
       label: "Golf Simulator"
     },
-    "Private Facilities": {
-      color: "#7E9CD1",
-      label: "Private Facilities"
+    "Pickleball Facilities": {
+      color: "#E07B54",
+      label: "Pickleball Facilities"
     }
   }
 };
