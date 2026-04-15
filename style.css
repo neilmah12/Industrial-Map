@@ -338,29 +338,12 @@ html, body {
 }
 
 .popup-address {
-  padding: 0 12px 10px;
+  padding: 0 12px 14px;
   font-size: 12px;
   color: #6b7280;
   line-height: 1.4;
 }
 
-.popup-directions {
-  display: block;
-  margin: 0 12px 12px;
-  padding: 6px 10px;
-  background: #f4f6f8;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #4DB595;
-  text-decoration: none;
-  text-align: center;
-  transition: background 0.15s;
-}
-
-.popup-directions:hover {
-  background: #e6f5f0;
-}
 
 /* ─────────────────────────────────────────────
    CLUSTER ICONS

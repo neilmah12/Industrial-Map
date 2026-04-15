@@ -81,11 +81,6 @@ function buildPopup(loc) {
       <div class="popup-category" style="background:${color}">${label}</div>
       <div class="popup-name">${loc.name}</div>
       <div class="popup-address">${loc.address}</div>
-      <a class="popup-directions"
-         href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.address)}"
-         target="_blank" rel="noopener">
-        Get Directions
-      </a>
     </div>`;
 }
 
